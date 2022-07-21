@@ -89,7 +89,7 @@ public class GetData {
                 if (timeFrom.getMinutes() < 10) middle = "0";
                 String stringTimeFrom = timeFrom.getHours() + ":" + middle + timeFrom.getMinutes();
                 
-                if (timeFrom.getMinutes() < 10) middle = "0";
+                if (timeTo.getMinutes() < 10) middle = "0";
                 else middle="";
                 String stringTimeTo = timeTo.getHours() + ":" + middle + timeTo.getMinutes();
 
@@ -180,6 +180,19 @@ public class GetData {
         }
         return null;
     }
+    
+    public void insertListTicket(int IDUser, String days) {
+        String query = "INSERT INTO ListTicket(IDUser, Days) values(?, ?)";
+        try {
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, IDUser);
+            ps.setString(2, days);
+            ps.executeUpdate();
+        }
+        catch(Exception e) {
+            
+        }
+    }
 
     public int getListTicketsNewest() {
         String query = "select * from ListTicket";
@@ -194,6 +207,23 @@ public class GetData {
         } catch (Exception e) {
         }
         return 0;
+    }
+    
+    public void insertTicket(String IDFlight, String FirstName, String LastName, String CCCD, int IDListTicket, String DOB) {
+        String query = "INSERT INTO Ticket(IDFlight, FirstName, LastName, CCCD, IDListTicket, DOB) values(?, ?, ?, ?, ?, ?)";
+        try {
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, IDFlight);
+            ps.setString(2, FirstName);
+            ps.setString(3, LastName);
+            ps.setString(4, CCCD);
+            ps.setInt(5, IDListTicket);
+            ps.setString(6, DOB);
+            ps.executeUpdate();
+        }
+        catch(Exception e) {
+            
+        }
     }
     
     public Schedule getScheduleOnID(String ID) {
@@ -233,7 +263,7 @@ public class GetData {
             while (rs.next()) {
                 return rs.getInt(3);
             }
-            return res;
+            return -1;
         } catch (Exception e) {
         }
         return -1;
@@ -266,7 +296,7 @@ public class GetData {
     
     public static void main(String[] args) {
         GetData n = new GetData();
-        ArrayList<Flight> ar = n.getAllFlightOnDate("2022-01-05");
-        System.out.print(ar.size());
+        int tmp = n.getSeatRemainingOnSID_date("2", "2022-7-21");
+        System.out.print(tmp);
     }
 }
