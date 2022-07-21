@@ -8,7 +8,6 @@ package Data;
 import Connection.ConnectDB;
 import Entity.Account;
 import Entity.Airport;
-import Entity.Flight;
 import Entity.ListTicket;
 import Entity.Schedule;
 import java.sql.Connection;
@@ -44,20 +43,6 @@ public class GetData {
         }
         return null;
     }
-    
-    public String DataListAirport(int id) {
-        ArrayList<Airport> arrAirport = getAirport();
-        String res = "";
-        for (int i = 0; i < arrAirport.size(); ++i) {
-            if (arrAirport.get(i).getID() == id) {
-                res+= "<option value='" + arrAirport.get(i).getID() + "' selected>" + arrAirport.get(i).getName() + "</option>";
-            }
-            else {
-                res+= "<option value='" + arrAirport.get(i).getID() + "'>" + arrAirport.get(i).getName() + "</option>";
-            }
-        }
-        return res;
-    }
 
     public ArrayList<Schedule> getSchedule(int IDFrom, int IDTo) {
         try {
@@ -85,13 +70,8 @@ public class GetData {
                         Arrive = listAirport.get(i).getName();
                     }
                 }
-                String middle = "";
-                if (timeFrom.getMinutes() < 10) middle = "0";
-                String stringTimeFrom = timeFrom.getHours() + ":" + middle + timeFrom.getMinutes();
-                
-                if (timeTo.getMinutes() < 10) middle = "0";
-                else middle="";
-                String stringTimeTo = timeTo.getHours() + ":" + middle + timeTo.getMinutes();
+                String stringTimeFrom = timeFrom.getHours() + ":" + timeFrom.getMinutes();
+                String stringTimeTo = timeTo.getHours() + ":" + timeTo.getMinutes();
 
                 Schedule tmp = new Schedule(rs.getInt("ID"), Depart, Arrive, stringTimeFrom, stringTimeTo);
                 listSchedule.add(tmp);
@@ -126,7 +106,7 @@ public class GetData {
     }
 
     public List<ListTicket> getInfor(String id) {
-        String query = "select FirstName,LastName,Days from ListTicket l, Account a \n"
+        String query = "select a.ID,FirstName,LastName,Days from ListTicket l, Account a \n"
                 + "where a.ID = l.IDUser and iduser=?";
         List<ListTicket> list = new ArrayList<>();
         try {
@@ -135,9 +115,10 @@ public class GetData {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new ListTicket(
-                        rs.getString(1),
+                        rs.getInt(1),
                         rs.getString(2),
-                        rs.getString(3)
+                        rs.getString(3),
+                        rs.getString(4)
                 )
                 );
             }
@@ -147,156 +128,11 @@ public class GetData {
         return list;
     }
 
-    public ArrayList<Flight> getAllFlight() {
-        String query = "select * from Flight";
-        ArrayList<Flight> res = new ArrayList<>();
-        try {
-            PreparedStatement ps = con.prepareStatement(query);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                Flight tmpFlight = new Flight(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getString(4));
-                res.add(tmpFlight);
-            }
-            return res;
-        } catch (Exception e) {
-        }
-        return null;
-    }
-    
-    public ArrayList<Flight> getAllFlightOnDate(String date) {
-        String query = "select * from Flight WHERE date = ?";
-        ArrayList<Flight> res = new ArrayList<>();
-        try {
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1, date);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                Flight tmpFlight = new Flight(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getString(4));
-                System.out.println(tmpFlight.getDate());
-                res.add(tmpFlight);
-            }
-            return res;
-        } catch (Exception e) {
-        }
-        return null;
-    }
-    
-    public void insertListTicket(int IDUser, String days) {
-        String query = "INSERT INTO ListTicket(IDUser, Days) values(?, ?)";
-        try {
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setInt(1, IDUser);
-            ps.setString(2, days);
-            ps.executeUpdate();
-        }
-        catch(Exception e) {
-            
-        }
-    }
-
-    public int getListTicketsNewest() {
-        String query = "select * from ListTicket";
-        try {
-            PreparedStatement ps = con.prepareStatement(query);
-            ResultSet rs = ps.executeQuery();
-            int id = 0;
-            while (rs.next()) {
-                if (id < rs.getInt(1)) id = rs.getInt(1);
-            }
-            return id;
-        } catch (Exception e) {
-        }
-        return 0;
-    }
-    
-    public void insertTicket(String IDFlight, String FirstName, String LastName, String CCCD, int IDListTicket, String DOB) {
-        String query = "INSERT INTO Ticket(IDFlight, FirstName, LastName, CCCD, IDListTicket, DOB) values(?, ?, ?, ?, ?, ?)";
-        try {
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1, IDFlight);
-            ps.setString(2, FirstName);
-            ps.setString(3, LastName);
-            ps.setString(4, CCCD);
-            ps.setInt(5, IDListTicket);
-            ps.setString(6, DOB);
-            ps.executeUpdate();
-        }
-        catch(Exception e) {
-            
-        }
-    }
-    
-    public Schedule getScheduleOnID(String ID) {
-        String query = "select * from Schedule WHERE ID = ?";
-        
-        try {
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1, ID);
-            ResultSet rs = ps.executeQuery();
-            SimpleDateFormat parser = new SimpleDateFormat("HH:mm");
-            while (rs.next()) {
-                Date timeFrom = parser.parse(rs.getString(4));
-                Date timeTo = parser.parse(rs.getString(5));
-                String middle = "";
-                if (timeFrom.getMinutes() < 10) middle = "0";
-                String stringTimeFrom = timeFrom.getHours() + ":" + middle + timeFrom.getMinutes();
-                
-                if (timeFrom.getMinutes() < 10) middle = "0";
-                else middle="";
-                String stringTimeTo = timeTo.getHours() + ":" + middle + timeTo.getMinutes();
-                
-                return new Schedule(rs.getInt(1), rs.getString(2), rs.getString(3), stringTimeFrom, stringTimeTo);
-            }
-        } catch (Exception e) {
-        }
-        return null;
-    }
-    
-    public int getSeatRemainingOnSID_date(String ID, String date) {
-        String query = "select * from Flight WHERE IDSchedule = ? AND date = ?";
-        int res = 200;
-        try {
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1, ID);
-            ps.setString(2, date);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                return rs.getInt(3);
-            }
-            return -1;
-        } catch (Exception e) {
-        }
-        return -1;
-    }
-    
-    public void insertSeatRemainingOnSID_date(String ID, String date, int seatRemaining) {
-        String query = "insert into Flight values(?, ?, ?, ?)";
-        try {
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1, ID+"_"+date);
-            ps.setString(2, ID);
-            ps.setInt(3, seatRemaining);
-            ps.setString(4, date);
-            ps.executeUpdate();
-        } catch (Exception e) {
-        }
-    }
-    
-    public void setSeatRemainingOnSID_date(String ID, String date, int seatRemaining) {
-        String query = "update [Flight] set SeatRemaining =? where date=? AND IDSchedule = ?";
-        try {
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setInt(1, seatRemaining);
-            ps.setString(2, date);
-            ps.setString(3, ID);
-            ps.executeUpdate();
-        } catch (Exception e) {
-        }
-    }
-    
     public static void main(String[] args) {
         GetData n = new GetData();
-        int tmp = n.getSeatRemainingOnSID_date("2", "2022-7-21");
-        System.out.print(tmp);
+        String us = "manager";
+        String pss = "manager";
+        Account a = n.getAccount(us, pss);
+        System.out.println(a);
     }
 }

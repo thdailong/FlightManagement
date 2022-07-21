@@ -68,7 +68,7 @@ public class LoginControl extends HttpServlet {
             String user = request.getParameter("username");
             String pass = request.getParameter("password");
             GetData data = new GetData();
-            Account a = data.getAccount(user, pass);
+            Account a = data.getAccount(user, pass);//kiem tra tai khoan
             HttpSession session = request.getSession();
             if (a == null) {
                 request.setAttribute("mess", "Wrong username or password");
@@ -78,7 +78,7 @@ public class LoginControl extends HttpServlet {
                     session.setAttribute("acc", a);
                     request.getRequestDispatcher("searchFlight.jsp").forward(request, response);
                 } else {
-                    response.sendRedirect("https://www.google.com/");
+                    response.sendRedirect("example1.jsp");
                 }
 
             }

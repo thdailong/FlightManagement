@@ -17,7 +17,7 @@ public class ConnectDB {
     public static Connection connect() {
         try {
             String user = "sa";
-            String pass = "123456";
+            String pass = "0948516577";
             String url = "jdbc:sqlserver://localhost:1433;databaseName=HangMayBay";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection connection = DriverManager.getConnection(url, user, pass);
