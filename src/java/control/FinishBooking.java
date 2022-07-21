@@ -8,6 +8,7 @@ package control;
 import Data.GetData;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,7 +48,6 @@ public class FinishBooking extends HttpServlet {
             int seatRemaining = data.getSeatRemainingOnSID_date(ScheduleID, date);
             if (seatRemaining == -1) {
                 data.insertSeatRemainingOnSID_date(ScheduleID, date, 200-seat);
-                
             }
             else if (seatRemaining - seat >= 0) {
                 data.setSeatRemainingOnSID_date(ScheduleID, date, seatRemaining - seat);
@@ -56,6 +56,22 @@ public class FinishBooking extends HttpServlet {
                 response.sendRedirect("index.jsp");
             }
             
+            String IDFlight = ScheduleID + "_" + date;
+            Date today = new Date();
+            String stringtoday = "" + (today.getYear()+1900) + "-";
+            if (today.getMonth() < 9) stringtoday+='0';
+            stringtoday+=(today.getMonth()+1)+"-";
+            if (today.getDate() < 10) stringtoday+='0';
+            stringtoday+=today.getDate();
+            
+            data.insertListTicket(3, stringtoday);
+            int IDListTicket = data.getListTicketsNewest();
+            
+            for (int i = 0; i < seat; ++i) {
+                data.insertTicket(IDFlight, FirstName[i], LastName[i], CCCD[i], IDListTicket, DOB[i]);
+            }
+            
+            out.print("DONE");
             
         }
     }
