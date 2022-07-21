@@ -5,132 +5,76 @@
  */
 package Entity;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 /**
  *
- * @author Admin
+ * @author Thanh Phuc
  */
 public class Ticket {
-    private int ID;
-    private String IDFlight;
-    private String FirstName;
-    private String LastName;
-    private String CCCD;
-    private int IDListTicket;
-    private String DOB;
+    private int id;
+    private String idFlight;
+    private String firstName;
+    private String lastName;
+    private String cccd;
+    private int idListTicket;
 
-    public Ticket(int ID, String IDFlight, String FirstName, String LastName, String CCCD, int IDListTicket, String DOB) {
-        this.ID = ID;
-        this.IDFlight = IDFlight;
-        this.FirstName = FirstName;
-        this.LastName = LastName;
-        this.CCCD = CCCD;
-        this.IDListTicket = IDListTicket;
-        this.DOB = DOB;
+    public Ticket() {
     }
 
-    public int getID() {
-        return ID;
+    public Ticket(int id, String idFlight, String firstName, String lastName, String cccd, int idListTicket) {
+        this.id = id;
+        this.idFlight = idFlight;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.cccd = cccd;
+        this.idListTicket = idListTicket;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public int getId() {
+        return id;
     }
 
-    public void setIDFlight(String IDFlight) {
-        this.IDFlight = IDFlight;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setFirstName(String FirstName) {
-        this.FirstName = FirstName;
+    public String getIdFlight() {
+        return idFlight;
     }
 
-    public void setLastName(String LastName) {
-        this.LastName = LastName;
-    }
-
-    public void setCCCD(String CCCD) {
-        this.CCCD = CCCD;
-    }
-
-    public void setIDListTicket(int IDListTicket) {
-        this.IDListTicket = IDListTicket;
-    }
-
-    public void setDOB(String DOB) {
-        this.DOB = DOB;
-    }
-
-    public String getIDFlight() {
-        return IDFlight;
+    public void setIdFlight(String idFlight) {
+        this.idFlight = idFlight;
     }
 
     public String getFirstName() {
-        return FirstName;
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
-    public String getCCCD() {
-        return CCCD;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public int getIDListTicket() {
-        return IDListTicket;
+    public String getCccd() {
+        return cccd;
     }
 
-    public String getDOB() {
-        return DOB;
+    public void setCccd(String cccd) {
+        this.cccd = cccd;
     }
-    
-    public String getDay() {
-        try {
-            Date date =new SimpleDateFormat("yyyy-MM-dd").parse(this.DOB);  
-            int x = date.getDate();
-            String res = "";
-            if (x < 10) res = "0";
-            res+=x;
-            return res;
-        }
-        catch (Exception e) {
-            System.out.println(e);
-        }
-        return "";
+
+    public int getIdListTicket() {
+        return idListTicket;
     }
-    
-    public String getMonth() {
-        try {
-            Date date =new SimpleDateFormat("yyyy-MM-dd").parse(this.DOB);  
-            int x = date.getMonth() + 1;
-            String res = "";
-            if (x < 10) res = "0";
-            res+=x;
-            return res;
-        }
-        catch (Exception e) {
-            System.out.println(e);
-        }
-        return "";
+
+    public void setIdListTicket(int idListTicket) {
+        this.idListTicket = idListTicket;
     }
-    
-    public String getYear() {
-        try {
-            Date date =new SimpleDateFormat("yyyy-MM-dd").parse(this.DOB);  
-            int x = date.getYear() + 1900;
-            String res = "";
-            res+=x;
-            return res;
-        }
-        catch (Exception e) {
-            System.out.println(e);
-        }
-        return "";
-    }
-    
     
 }

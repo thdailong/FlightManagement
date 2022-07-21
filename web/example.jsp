@@ -5,87 +5,76 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Business Frontpage - Start Bootstrap Template</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <title>W3.CSS Template</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+            .myLink {display: none}
+        </style>
     </head>
-    <body>
-        <jsp:include page="header.jsp"></jsp:include>
-        <!-- Header-->
-        <header class="bg-dark py-5">
-            <div class="container px-5">
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-6">
-                        <div class="text-center my-5">
-                            <h1 class="display-5 fw-bolder text-white mb-2">Present your business in a whole new way</h1>
-                            <p class="lead text-white-50 mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit!</p>
-                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
-                                <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
-                            </div>
-                        </div>
+    <body class="w3-light-grey">
+
+        <!-- Navigation Bar -->
+        <div class="w3-container">
+            <div class="w3-bar w3-white w3-border-bottom w3-xlarge">
+                <a href="index.jsp" class="w3-bar-item w3-button w3-text-red w3-hover-red"><b><i class="fa fa-home w3-margin-right"></i>FLIGHTMANAGEMENT</b></a>
+                <div class="w3-dropdown-hover">
+                    <button class="w3-button">Manager</button>
+                    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                        <a href="Loginfile.jsp" class="w3-bar-item w3-button">Search History</a>
+                        <a href="#" class="w3-bar-item w3-button"></a>
                     </div>
                 </div>
-            </div>
-        </header>
-        <!-- Features section-->
-        <section class="py-5 border-bottom" id="features">
-            <div class="container px-5 my-5">
-                <div class="row gx-5">
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
-                        <h2 class="h4 fw-bolder">Featured title</h2>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Call to action
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
-                        <h2 class="h4 fw-bolder">Featured title</h2>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Call to action
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
-                        <h2 class="h4 fw-bolder">Featured title</h2>
-                        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                        <a class="text-decoration-none" href="#!">
-                            Call to action
-                            <i class="bi bi-arrow-right"></i>
-                        </a>
+                <div class="w3-dropdown-hover">
+                    <button class="w3-button">Admin</button>
+                    <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                        <a href="#" class="w3-bar-item w3-button">Add airport</a>
+                        <a href="#" class="w3-bar-item w3-button">Add schedule</a>
+                        <a href="#" class="w3-bar-item w3-button">Search history</a>
                     </div>
                 </div>
+                <a href="#" class="w3-bar-item w3-button w3-right w3-hover-red w3-text-grey">Sign Up</a>
+                <a href="#" class="w3-bar-item w3-button w3-right w3-hover-red w3-text-grey">Login</a>
+                <a href="#" class="w3-bar-item w3-button w3-right w3-hover-red w3-text-grey">Profile</a>
             </div>
-        </section>
-        <!-- Pricing section-->
-        <!-- Footer-->
-        <jsp:include page="footer.jsp"></jsp:include>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        </div>
+
+        <!-- Header -->
+        <div class="w3-container">
+
+            <h1>đưa nội dung vào đây</h1>
+            
+        </div>
+
+        <!-- Page content -->
+
+
+        <!-- Footer -->
+        <footer class="w3-container w3-center w3-opacity w3-margin-bottom">
+            <h5>Find Us On</h5>
+            <div class="w3-xlarge w3-padding-16">
+                <i class="fa fa-facebook-official w3-hover-opacity"></i>
+                <i class="fa fa-instagram w3-hover-opacity"></i>
+                <i class="fa fa-snapchat w3-hover-opacity"></i>
+                <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+                <i class="fa fa-twitter w3-hover-opacity"></i>
+                <i class="fa fa-linkedin w3-hover-opacity"></i>
+            </div>
+            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+        </footer>
+
+        
+
     </body>
 </html>
-
 

@@ -3,15 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/HangMayBay/src/java/control/FinishBooking.java</file>
-            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/HangMayBay/src/java/DAO/dao.java</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/HangMayBay/src/java/Connection/ConnectDB.java</file>
             <file>file:/C:/Users/Admin/Documents/NetBeansProjects/HangMayBay/web/index.jsp</file>
-            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/HangMayBay/src/java/Data/GetData.java</file>
-            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/HangMayBay/web/ChooseFlight.jsp</file>
-            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/HangMayBay/src/java/Entity/Flight.java</file>
-            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/HangMayBay/src/java/Entity/Ticket.java</file>
-            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/HangMayBay/src/java/control/makeTicket.java</file>
-            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/HangMayBay/web/makeTicket.jsp</file>
+            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/HangMayBay/src/java/control/LoginControl.java</file>
         </group>
     </open-files>
 </project-private>
