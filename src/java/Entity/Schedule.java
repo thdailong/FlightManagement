@@ -63,5 +63,10 @@ public class Schedule {
     public String getTimeTo() {
         return TimeTo;
     }
+
+    @Override
+    public String toString() {
+        return "Schedule{" + "ID=" + ID + ", FromAirport=" + FromAirport + ", ToAirport=" + ToAirport + ", TimeFrom=" + TimeFrom + ", TimeTo=" + TimeTo + '}';
+    }
     
 }

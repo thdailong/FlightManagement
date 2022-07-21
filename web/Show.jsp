@@ -12,20 +12,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h3><h3/>
-        <table border='1'>
-            <tr>
-                <td>FirstName</td>
-                <td>LastName</td>
-                <td>Days</td>
-            </tr>
-            <c:forEach items="${list}" var="o">
-                <tr>
-                <td>${o.firstname}</td>
-                <td>${o.lastname}</td>
-                <td>${o.days}</td>
-               </tr>
-            </c:forEach>
-        </table>
+        User : ${acc.username};
+        <br>
+        Pass : ${acc.password};
     </body>
 </html>

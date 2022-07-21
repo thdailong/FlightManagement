@@ -10,35 +10,9 @@ package Entity;
  * @author thdai
  */
 public class ListTicket {
-    private int ID; 
-    private String firstname;
-    private String lastname;
+    private int ID;
     private int IDUser;
     private String days;
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public ListTicket(String firstname, String lastname, String days) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.days = days;
-    }
-
-    
 
     public void setID(int ID) {
         this.ID = ID;

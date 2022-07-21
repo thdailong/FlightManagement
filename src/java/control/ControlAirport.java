@@ -5,22 +5,24 @@
  */
 package control;
 
-import Data.GetData;
-import Entity.Account;
+import DAO.dao;
+import Entity.Airport;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author ADMIN
+ * @author phuoc
  */
-@WebServlet(name = "LoginControl", urlPatterns = {"/LoginControl"})
-public class LoginControl extends HttpServlet {
+@WebServlet(name = "ControlAirport", urlPatterns = {"/ControlAirport"})
+public class ControlAirport extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,8 +35,13 @@ public class LoginControl extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        
+        dao dao = new dao();
+        List<Airport> list = dao.getAirport();
+        //request.setCharacterEncoding("UTF-8");
+        HttpSession session = request.getSession();
+        session.setAttribute("listA", list);
+        request.setAttribute("listA", list);
+        request.getRequestDispatcher("list_airport.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -63,15 +70,7 @@ public class LoginControl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-try {
-            String user = request.getParameter("username");
-            String pass = request.getParameter("password");
-            GetData data = new GetData();
-            Account a = data.getAccount(user, pass);
-            request.setAttribute("acc", a);
-            request.getRequestDispatcher("Show.jsp").forward(request, response);
-        } catch (Exception e) {
-        }
+        processRequest(request, response);
     }
 
     /**

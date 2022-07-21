@@ -3,15 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/HangMayBay/src/java/control/FinishBooking.java</file>
-            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/HangMayBay/src/java/DAO/dao.java</file>
-            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/HangMayBay/web/index.jsp</file>
-            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/HangMayBay/src/java/Data/GetData.java</file>
-            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/HangMayBay/web/ChooseFlight.jsp</file>
-            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/HangMayBay/src/java/Entity/Flight.java</file>
-            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/HangMayBay/src/java/Entity/Ticket.java</file>
-            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/HangMayBay/src/java/control/makeTicket.java</file>
-            <file>file:/C:/Users/Admin/Documents/NetBeansProjects/HangMayBay/web/makeTicket.jsp</file>
+            <file>file:/C:/Users/phuoc/OneDrive/Máy%20tính/HangMayBay/web/add_schedule.jsp</file>
+            <file>file:/C:/Users/phuoc/OneDrive/Máy%20tính/HangMayBay/src/java/Entity/Airport.java</file>
+            <file>file:/C:/Users/phuoc/OneDrive/Máy%20tính/HangMayBay/src/java/Entity/Schedule.java</file>
+            <file>file:/C:/Users/phuoc/OneDrive/Máy%20tính/HangMayBay/web/list_schedule.jsp</file>
+            <file>file:/C:/Users/phuoc/OneDrive/Máy%20tính/HangMayBay/src/java/DAO/dao.java</file>
+            <file>file:/C:/Users/phuoc/OneDrive/Máy%20tính/HangMayBay/web/add_airport.jsp</file>
+            <file>file:/C:/Users/phuoc/OneDrive/Máy%20tính/HangMayBay/src/java/control/DeleteSchedule.java</file>
+            <file>file:/C:/Users/phuoc/OneDrive/Máy%20tính/HangMayBay/src/java/control/AddAirport.java</file>
+            <file>file:/C:/Users/phuoc/OneDrive/Máy%20tính/HangMayBay/src/java/DAO/ConnectDB.java</file>
+            <file>file:/C:/Users/phuoc/OneDrive/Máy%20tính/HangMayBay/web/list_airport.jsp</file>
+            <file>file:/C:/Users/phuoc/OneDrive/Máy%20tính/HangMayBay/src/java/control/ControlSchedule.java</file>
+            <file>file:/C:/Users/phuoc/OneDrive/Máy%20tính/HangMayBay/src/java/control/UpdateSchedule.java</file>
+            <file>file:/C:/Users/phuoc/OneDrive/Máy%20tính/HangMayBay/web/update_schedule.jsp</file>
+            <file>file:/C:/Users/phuoc/OneDrive/Máy%20tính/HangMayBay/src/java/Data/GetData.java</file>
+            <file>file:/C:/Users/phuoc/OneDrive/Máy%20tính/HangMayBay/src/java/control/AddSchedule.java</file>
+            <file>file:/C:/Users/phuoc/OneDrive/Máy%20tính/HangMayBay/src/java/control/ControlAirport.java</file>
+            <file>file:/C:/Users/phuoc/OneDrive/Máy%20tính/HangMayBay/src/java/control/UpdateSchedulefinal.java</file>
         </group>
     </open-files>
 </project-private>

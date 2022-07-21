@@ -5,7 +5,6 @@
  */
 package DAO;
 
-import Connection.ConnectDB;
 import Entity.Airport;
 import Entity.Schedule;
 import java.sql.Connection;

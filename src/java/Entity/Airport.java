@@ -17,6 +17,11 @@ public class Airport {
         return ID;
     }
 
+    @Override
+    public String toString() {
+        return "Airport{" + "ID=" + ID + ", Name=" + Name + '}';
+    }
+
     public String getName() {
         return Name;
     }

@@ -15,28 +15,16 @@ public class Account {
     private String password;
     private String FirstName;
     private String LastName;
-    private int role;
-
-    public int getRole() {
-        return role;
-    }
-
-    public void setRole(int role) {
-        this.role = role;
-    }
-
- 
 
     public Account() {
     }
 
-    public Account(int ID, String username, String password, String FirstName, String LastName,int role) {
+    public Account(int ID, String username, String password, String FirstName, String LastName) {
         this.ID = ID;
         this.username = username;
         this.password = password;
         this.FirstName = FirstName;
         this.LastName = LastName;
-        this.role = role;
     }
 
     public int getID() {
